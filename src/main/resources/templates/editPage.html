@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование пользователя</title>
+</head>
+<body>
+<h2>Форма редактирования пользователя</h2>
+<form action="/edit" method="post" th:object="${user}">
+    <!-- Скрытое поле для идентификатора пользователя -->
+    <input type="hidden" id="id" name="id" th:value="*{id}">
+
+    <label for="name">Имя:</label>
+    <!-- Добавьте текущее имя пользователя в атрибут value -->
+    <input type="text" id="name" name="name" required th:value="*{name}">
+
+    <label for="surname">Фамилия:</label>
+    <!-- Добавьте текущую фамилию пользователя в атрибут value -->
+    <input type="text" id="surname" name="surname" required th:value="*{surname}">
+
+    <label for="age">Возраст:</label>
+    <!-- Добавьте текущий возраст пользователя в атрибут value -->
+    <input type="number" id="age" name="age" required min="0" th:value="*{age}">
+
+    <input type="submit" value="Сохранить изменения">
+</form>
+</body>
+</html>
